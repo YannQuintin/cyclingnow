@@ -47,17 +47,17 @@ export const addRemoveFriend = async (req, res) => {
       friend.friends.push(id);
     } //this makes sure the lists are updated on both users
     await user.save();
-    await friend.save();
+    await friend.save(); 
 
     const friends = await Promise.all(
-      user.friends.map((id) => User.findById(id))
+      user.friends.map((id) => User.findById(id)) //
     );
-    const formattedFriends = friends.map(
+    const formattedFriends = friends.map( // this formats the friends list to only include the following fields
       ({ _id, firstName, lastName, occupation, location, picturePath }) => {
         return { _id, firstName, lastName, occupation, location, picturePath };
-      }
-    );
-    res.status(200).json(formattedFriends);
+      } 
+    ); // this returns the updated friend list
+    res.status(200).json(formattedFriends); 
   } catch (err) {
     res.status(404).json({ message: err.message });
   }

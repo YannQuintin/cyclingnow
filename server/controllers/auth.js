@@ -41,22 +41,43 @@ export const register = async (req, res) => {
 
 //* LOGGING IN */
 
+// export const login = async (req, res) => {
+//     try {
+//         const { email, password } = req.body;
+//         const user = await User.findOne({ email: email });
+//         if (!user) return res.status(400).json({ msg: "Uh-oh, User does not exist. Check your (booty), nah just your credentials and try again." });
+//         const isMatch = await bcrypt.compare(password, user.password);
+//         if (!isMatch) return res.status(400).json({ msg: "Invalid Credentials." });
+
+//         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+//         delete user.password;
+//         res.status(200).json({ token, user });
+
+//     } catch (err) {
+//         res.status(500).json({ error: err.message }); 
+//     }
+// };
 export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email: email });
-        if (!user) return res.status(400).json({ msg: "Uh-oh, User does not exist. Check your (booty), nah just your credentials and try again." });
-        
+        if (!user) {
+            console.log('User does not exist');  // Log if the user does not exist
+            return res.status(400).json({ msg: "Uh-oh, User does not exist. Check your (booty), nah just your credentials and try again." });
+        }
         const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) return res.status(400).json({ msg: "Invalid Credentials." });
+        if (!isMatch) {
+            console.log('Invalid credentials');  // Log if the credentials are invalid
+            return res.status(400).json({ msg: "Invalid Credentials." });
+        }
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
         delete user.password;
         res.status(200).json({ token, user });
 
     } catch (err) {
+        console.log(err);  // Log any errors
         res.status(500).json({ error: err.message });
     }
 };
-
 
