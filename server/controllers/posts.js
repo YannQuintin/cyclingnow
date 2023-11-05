@@ -10,6 +10,7 @@ export const createPost = async (req, res) => {
     const newPost = new Post({
       userId,
       firstName: user.firstName,
+      lastName: user.lastName,
       location: user.location,
       description,
       userPicturePath: user.picturePath,
@@ -57,7 +58,7 @@ export const likePost = async (req, res) => {
     const isLiked = post.likes.get(userId); //* we're checking if the userId exists, if it does, it means the post has been like by current user.
 
     if (isLiked) {
-      //* this if else statement deletes if it already exists, and sets it if it does not.
+      //* this if else statement deletes if it already exists, and sets it if it is not.
       post.likes.delete(userId);
     } else {
       post.likes.set(userId, true);

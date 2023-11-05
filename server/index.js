@@ -26,7 +26,7 @@ const app = express();
 app.use(express.json());
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
-app.use(morgan("common"));
+app.use(morgan("combined"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
@@ -45,7 +45,7 @@ const upload = multer({ storage });
 
 //* ROUTES WITH FILES */
 // This is the Registering route,
-app.post("/auth/register", upload.single("picture"), register);
+app.post("/auth/register", upload.single("picture"), register); // This is the Registering route, and it uses the register controller function to create a new user in the database. It also uses the upload middleware to upload the user's profile picture to the public/assets folder.
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 //* ROUTES */
