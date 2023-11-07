@@ -33,3 +33,23 @@ const postSchema = mongoose.Schema(
 const Post = mongoose.model("Post", postSchema);
 
 export default Post;
+
+//! BELOW IS THE RESULT OF A PROMPT IN COPILOTE /WORKSPACE TO ADD COMMENTS INTO POST.JS
+
+// import mongoose from "mongoose";
+// import Comment from "./Comment.js"; // Assuming Comment.js is in the same directory
+
+// const postSchema = mongoose.Schema(
+//   {
+//      ... other fields ...
+//     comments: [{
+//       type: mongoose.Schema.Types.ObjectId,
+//       ref: 'Comment'
+//     }],
+//   },
+//   { timestamps: true }
+// );
+
+// const Post = mongoose.model("Post", postSchema);
+
+// export default Post;

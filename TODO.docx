@@ -1,0 +1,14 @@
+Improvement of Comments as an object
+Server Side modifications:
+1. DONE and added to code - server/src/models/Post.js: Update the Post model to include an array of comments.
+2. DONE and added to code - server/src/models/comments.js: Create a new Comment model to represent comments.
+3. server/src/controllers/postController.js: Update the createPost and updatePost methods to handle comments.
+4. server/src/controllers/commentRoutes.js: Create a new CommentController to handle comments.
+5. server/src/routes/postRoutes.js: Update the postRoutes to include routes for comments.
+6. server/src/routes/commentRoutes.js: Create a new commentRoutes to handle comment routes.
+
+Client Side modifications:
+1. client/src.components/Post.js: Update the Post component to display comments
+2. client/src/components/Comments.js: Create a new Comment component to display comments.
+3. client/src/services/postServices.js: Update the postService to handle comments.
+4. client/src/services/commentService.js: Create a new commentService to handle comment requests.
