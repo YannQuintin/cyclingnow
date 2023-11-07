@@ -14,7 +14,7 @@ TBD - Guidelines on how to use the platform, with examples of commands or action
 
 ## Authors
 
-The original codebase was developed by EdMoh, whose expertise and instructional videos can be found on [his YouTube channel](https://www.youtube.com/user/EdMoh). Subsequent modifications and improvements have been made by Yann Quintin to tailor the application to the needs of the cycling community.
+The original codebase was developed by [EdMoh](https://github.com/ed-roh), whose expertise and instructional videos can be found on [his YouTube channel](https://www.youtube.com/user/EdMoh). Subsequent modifications and improvements have been made by Yann Quintin to tailor the application to the needs of the cycling community.
 
 ## License
 
