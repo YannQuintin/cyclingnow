@@ -11,7 +11,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const navigate = useNavigate();
   const { _id } = useSelector((state) => state.user);
   const token = useSelector((state) => state.token);
-  const friends = useSelector((state) => state.user.friends);
+  const friends = useSelector((state) => state.user?.friends || []);
 
   const { palette } = useTheme();
   const primaryLight = palette.primary.light;
@@ -20,7 +20,7 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const medium = palette.neutral.medium;
 
   // const isFriend = friends.find((friend) => friend._id === friendId); // This is the original line. The one below has received a conditional operator to check if the friend is in the friends array. If it is, it will return true, if not, it will return false. This is the same as the line above, but it is more concise.
-  console.log(friends);
+  // console.log(friends);
   const isFriend = friends?.find((friend) => friend._id === friendId);
 
 
